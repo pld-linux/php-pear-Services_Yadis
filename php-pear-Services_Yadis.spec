@@ -1,0 +1,75 @@
+%include	/usr/lib/rpm/macros.php
+%define		_class		Services
+%define		_subclass	Yadis
+%define		_status		beta
+%define		_pearname	Services_Yadis
+Summary:	%{_pearname} - Implementation of the Yadis Specification 1.0 protocol for PHP5
+Summary(pl.UTF-8):	%{_pearname} - Implementacja protoko³u Yadis 1.0 dla PHP5
+Name:		php-pear-%{_pearname}
+Version:	0.2.0
+Release:	1
+License:	New BSD License
+Group:		Development/Languages/PHP
+Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
+# Source0-md5:	361ac9f967550c60b973a3d0de0525a8
+URL:		http://pear.php.net/package/Services_Yadis/
+BuildRequires:	php-pear-PEAR
+BuildRequires:	rpm-php-pearprov >= 4.4.2-11
+Requires:	php-pear
+Requires:	php-pear-HTTP_Request
+Requires:	php-pear-PEAR >= 1.4.0b1
+Requires:	php-pear-Validate
+BuildArch:	noarch
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%description
+Implementation of the Yadis Specification 1.0 protocol allowing a
+client to discover a list of Services a Yadis Identity Provider
+offers.
+
+In PEAR status of this package is: %{_status}.
+
+%description -l pl.UTF-8
+Pakiet ten dostarcza implementacjê protoko³u Yadis 1.0 umo¿liwiaj±cego
+klientowi na rozpoznanie us³ug udostêpnianych przez dostawcê
+to¿samo¶ci Yadis.
+
+Ta klasa ma w PEAR status: %{_status}.
+
+%package tests
+Summary:	Tests for PEAR::%{_pearname}
+Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
+Group:		Development/Languages/PHP
+AutoReq:	no
+Requires:	%{name} = %{version}-%{release}
+AutoProv:	no
+
+%description tests
+Tests for PEAR::%{_pearname}.
+
+%description tests -l pl.UTF-8
+Testy dla PEAR::%{_pearname}.
+
+%prep
+%pear_package_setup
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/Services
+%pear_package_install
+mv -f $RPM_BUILD_ROOT%{php_pear_dir}/{,Services/}Yadis
+mv -f $RPM_BUILD_ROOT%{php_pear_dir}/{,Services/}Yadis.php
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files
+%defattr(644,root,root,755)
+%doc install.log
+%{php_pear_dir}/.registry/*.reg
+%{php_pear_dir}/Services/Yadis
+%{php_pear_dir}/Services/Yadis.php
+
+%files tests
+%defattr(644,root,root,755)
+%{php_pear_dir}/test.php
