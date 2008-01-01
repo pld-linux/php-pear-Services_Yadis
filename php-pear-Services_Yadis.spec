@@ -4,7 +4,7 @@
 %define		_status		beta
 %define		_pearname	Services_Yadis
 Summary:	%{_pearname} - Implementation of the Yadis Specification 1.0 protocol for PHP5
-Summary(pl.UTF-8):	%{_pearname} - Implementacja protoko³u Yadis 1.0 dla PHP5
+Summary(pl.UTF-8):	%{_pearname} - Implementacja protokoÅ‚u Yadis 1.0 dla PHP5
 Name:		php-pear-%{_pearname}
 Version:	0.2.0
 Release:	1
@@ -30,9 +30,9 @@ offers.
 In PEAR status of this package is: %{_status}.
 
 %description -l pl.UTF-8
-Pakiet ten dostarcza implementacjê protoko³u Yadis 1.0 umo¿liwiaj±cego
-klientowi na rozpoznanie us³ug udostêpnianych przez dostawcê
-to¿samo¶ci Yadis.
+Pakiet ten dostarcza implementacjÄ™ protokoÅ‚u Yadis 1.0 umoÅ¼liwiajÄ…cego
+klientowi na rozpoznanie usÅ‚ug udostÄ™pnianych przez dostawcÄ™
+toÅ¼samoÅ›ci Yadis.
 
 Ta klasa ma w PEAR status: %{_status}.
 
