@@ -6,12 +6,12 @@
 Summary:	%{_pearname} - Implementation of the Yadis Specification 1.0 protocol for PHP5
 Summary(pl.UTF-8):	%{_pearname} - Implementacja protokołu Yadis 1.0 dla PHP5
 Name:		php-pear-%{_pearname}
-Version:	0.2.0
-Release:	3
+Version:	0.2.2
+Release:	1
 License:	New BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	361ac9f967550c60b973a3d0de0525a8
+# Source0-md5:	5fc1e9679acdaac38193fdae6a3593f3
 URL:		http://pear.php.net/package/Services_Yadis/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
@@ -55,10 +55,10 @@ Testy dla PEAR::%{_pearname}.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/Services
+install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
-mv -f $RPM_BUILD_ROOT%{php_pear_dir}/{,Services/}Yadis
-mv -f $RPM_BUILD_ROOT%{php_pear_dir}/{,Services/}Yadis.php
+install -d $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
+mv $RPM_BUILD_ROOT%{php_pear_dir}/{Services,tests/%{_pearname}}/test.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -72,4 +72,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files tests
 %defattr(644,root,root,755)
-%{php_pear_dir}/test.php
+%{php_pear_dir}/tests/%{_pearname}
