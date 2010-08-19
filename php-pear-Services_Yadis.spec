@@ -6,17 +6,18 @@
 Summary:	%{_pearname} - Implementation of the Yadis Specification 1.0 protocol for PHP5
 Summary(pl.UTF-8):	%{_pearname} - Implementacja protokołu Yadis 1.0 dla PHP5
 Name:		php-pear-%{_pearname}
-Version:	0.2.2
+Version:	0.4.0
 Release:	1
 License:	New BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
-# Source0-md5:	5fc1e9679acdaac38193fdae6a3593f3
+# Source0-md5:	8ec981bf2ecfc5db4050eeec6c61b94e
 URL:		http://pear.php.net/package/Services_Yadis/
 BuildRequires:	php-pear-PEAR
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 Requires:	php-pear
-Requires:	php-pear-HTTP_Request
+Requires:	php-pear-HTTP_Request2 >= 0.5.1
+Requires:	php-pear-Net_URL2
 Requires:	php-pear-PEAR-core >= 1:1.4.0
 Requires:	php-pear-Validate
 BuildArch:	noarch
@@ -40,9 +41,9 @@ Ta klasa ma w PEAR status: %{_status}.
 Summary:	Tests for PEAR::%{_pearname}
 Summary(pl.UTF-8):	Testy dla PEAR::%{_pearname}
 Group:		Development/Languages/PHP
-AutoReq:	no
 Requires:	%{name} = %{version}-%{release}
 AutoProv:	no
+AutoReq:	no
 
 %description tests
 Tests for PEAR::%{_pearname}.
@@ -57,8 +58,6 @@ Testy dla PEAR::%{_pearname}.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{php_pear_dir}
 %pear_package_install
-install -d $RPM_BUILD_ROOT%{php_pear_dir}/tests/%{_pearname}
-mv $RPM_BUILD_ROOT%{php_pear_dir}/{Services,tests/%{_pearname}}/test.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
