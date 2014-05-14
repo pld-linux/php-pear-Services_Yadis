@@ -5,7 +5,7 @@ Summary:	%{_pearname} - Implementation of the Yadis Specification 1.0 protocol f
 Summary(pl.UTF-8):	%{_pearname} - Implementacja protokołu Yadis 1.0 dla PHP5
 Name:		php-pear-%{_pearname}
 Version:	0.5.1
-Release:	2
+Release:	3
 License:	New BSD License
 Group:		Development/Languages/PHP
 Source0:	http://pear.php.net/get/%{_pearname}-%{version}.tgz
@@ -14,9 +14,9 @@ URL:		http://pear.php.net/package/Services_Yadis/
 BuildRequires:	php-pear-PEAR >= 1:1.4.0-0.b1
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.300
+Requires:	php(date)
 Requires:	php(dom)
 Requires:	php(simplexml)
-Requires:	php-date
 Requires:	php-pear
 Requires:	php-pear-HTTP_Request2 >= 0.5.1
 Requires:	php-pear-Net_URL2
