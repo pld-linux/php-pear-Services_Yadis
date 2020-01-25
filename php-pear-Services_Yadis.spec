@@ -1,6 +1,5 @@
 %define		_status		beta
 %define		_pearname	Services_Yadis
-%include	/usr/lib/rpm/macros.php
 Summary:	%{_pearname} - Implementation of the Yadis Specification 1.0 protocol for PHP5
 Summary(pl.UTF-8):	%{_pearname} - Implementacja protokołu Yadis 1.0 dla PHP5
 Name:		php-pear-%{_pearname}
